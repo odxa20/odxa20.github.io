@@ -5,7 +5,7 @@
 
 		<style>
 			body {font-family: Verdana, Geneva, Tahoma, sans-serif;
-					font-size: 200px;
+					font-size: 150px;
 					background-color: lightgray;
 					color: midnightblue;}
 		</style>
@@ -39,11 +39,18 @@
 			for (arrTime of arrTimeList.reverse()){
 				if (arrTime <= desiredArrivalTime){
 					var leaveHome = depTimeList[arrTimeList.length - arrTimeList.indexOf(arrTime) - 1] - toStation - 60;
+					var nea_ionia_arrival = formatTime(arrTime);
+            		var school_arrival = formatTime(arrTime + toSchool);
+            		var agios_eleftherios_arrival = formatTime(leaveHome + toStation);
+            		var train_leaves = formatTime(depTimeList[arrTimeList.length - arrTimeList.indexOf(arrTime) - 1]);
 					break;
 				}
 			}
 			document.write("<center>" + formatTime(leaveHome) + "<center/>");
-			
+			document.write("Arrive at Ag. Eleftherios: ".fontsize(15) + agios_eleftherios_arrival.fontsize(15) + "<br/>".fontsize(15));
+			document.write("Train Leaves: ".fontsize(15) + train_leaves.fontsize(15) + "<br/>".fontsize(15));
+			document.write("Arrive at Nea Ionia: ".fontsize(15) + nea_ionia_arrival.fontsize(15) + "<br/>".fontsize(15));
+			document.write("Arrive at School: ".fontsize(15) + school_arrival.fontsize(15) + "<br/>".fontsize(15));
 		</script>
 	</body>
 
